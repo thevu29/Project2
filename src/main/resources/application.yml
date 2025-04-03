@@ -5,7 +5,7 @@ spring:
     url: jdbc:mysql://localhost:3306/manage_education
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: root
+    password: 0108
   jpa:
     hibernate:
       ddl-auto: update
