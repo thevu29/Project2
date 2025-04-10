@@ -2,7 +2,7 @@ spring:
   application:
     name: project-2
   datasource:
-    url: jdbc:mysql://localhost:3306/manage_education
+    url: jdbc:mysql://localhost:3306/manage_education?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root

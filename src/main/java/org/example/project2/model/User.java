@@ -1,24 +1,27 @@
 package org.example.project2.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.example.project2.constant.UserRole;
 
+@Table(name = "user")
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+@Builder
+@ToString(exclude = {"password"})
+public class User extends BaseModel {
+    private String username;
 
-    @Column(nullable = false)
-    private String name;
+    private String password;
 
-    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
-    private String password;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+    @OneToOne(mappedBy = "user")
+    private GiangVien giangVien;
 }
